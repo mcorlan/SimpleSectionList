@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Tile Section List" xmlns:components="org.corlan.components.*" 
+		xmlns:skins="org.corlan.skins.*" xmlns:layout="org.corlan.layout.*">
+	<fx:Declarations>
+		<s:ArrayCollection id="arr">
+			<fx:Object section="Fruits"/>
+			<fx:Object label="Banana"/>
+			<fx:Object label="Blueberries"/>
+			<fx:Object label="Cherry"/>
+			<fx:Object label="Kiwi"/>
+			<fx:Object label="Peach"/>
+			<fx:Object label="Strawberries"/>
+			<fx:Object section="Vegetables"/>
+			<fx:Object label="Bean"/>
+			<fx:Object label="Cabbage"/>
+			<fx:Object label="Cucumber"/>
+			<fx:Object label="Eggplant"/>
+			<fx:Object label="Onion"/>
+			<fx:Object label="Potato"/>
+			<fx:Object section="Cheese"/>
+			<fx:Object label="Blue Cheese"/>
+			<fx:Object label="Cheddar"/>
+			<fx:Object label="Camebert"/>
+			<fx:Object label="Gorgonzola"/>
+			<fx:Object label="Mozzarella"/>
+			<fx:Object label="Parmesan"/>
+			<fx:Object section="Wines"/>
+			<fx:Object label="Bordeaux"/>
+			<fx:Object label="Porto"/>
+			<fx:Object label="Madras"/>
+			
+			<fx:Object section="Fruits 2"/>
+			<fx:Object label="Banana"/>
+			<fx:Object label="Blueberries"/>
+			<fx:Object label="Cherry"/>
+			<fx:Object label="Kiwi"/>
+			<fx:Object label="Peach"/>
+			<fx:Object label="Strawberries"/>
+			<fx:Object section="Vegetables 2"/>
+			<fx:Object label="Bean"/>
+			<fx:Object label="Cabbage"/>
+			<fx:Object label="Cucumber"/>
+			<fx:Object label="Eggplant"/>
+			<fx:Object label="Onion"/>
+			<fx:Object label="Potato"/>
+			<fx:Object section="Cheese 2"/>
+			<fx:Object label="Blue Cheese"/>
+			<fx:Object label="Cheddar"/>
+			<fx:Object label="Camebert"/>
+			<fx:Object label="Gorgonzola"/>
+			<fx:Object label="Mozzarella"/>
+			<fx:Object label="Parmesan"/>
+			<fx:Object section="Wines 2"/>
+			<fx:Object label="Bordeaux"/>
+			<fx:Object label="Porto"/>
+			<fx:Object label="Madras"/>
+			
+			<fx:Object section="Fruits 3"/>
+			<fx:Object label="Banana"/>
+			<fx:Object label="Blueberries"/>
+			<fx:Object label="Cherry"/>
+			<fx:Object label="Kiwi"/>
+			<fx:Object label="Peach"/>
+			<fx:Object label="Strawberries"/>
+			<fx:Object section="Vegetables 3"/>
+			<fx:Object label="Bean"/>
+			<fx:Object label="Cabbage"/>
+			<fx:Object label="Cucumber"/>
+			<fx:Object label="Eggplant"/>
+			<fx:Object label="Onion"/>
+			<fx:Object label="Potato"/>
+			<fx:Object section="Cheese 3"/>
+			<fx:Object label="Blue Cheese"/>
+			<fx:Object label="Cheddar"/>
+			<fx:Object label="Camebert"/>
+			<fx:Object label="Gorgonzola"/>
+			<fx:Object label="Mozzarella"/>
+			<fx:Object label="Parmesan"/>
+			<fx:Object section="Wines 3"/>
+			<fx:Object label="Bordeaux"/>
+			<fx:Object label="Porto"/>
+			<fx:Object label="Madras"/>
+			
+		</s:ArrayCollection>
+	</fx:Declarations>
+	
+	<s:navigationContent>
+		<s:Button label="Back" click="navigator.popView()"/>
+	</s:navigationContent>
+	
+	<components:SectionList id="list" x="0" y="0" 
+							width="100%" height="100%" 
+							sectionField="section" 
+							dataProvider="{arr}">
+		<components:layout>
+			<layout:SectionListLayout columnWidth="200"/>
+		</components:layout>
+		
+		<components:itemRenderer>
+			<fx:Component>
+				<skins:SectionListItemRenderer 
+					normalLabelField="label" 
+					sectionField="section" 
+				   	backgroundSection="0x1d9cd1"/>
+			</fx:Component>
+		</components:itemRenderer>
+	</components:SectionList>
+</s:View>

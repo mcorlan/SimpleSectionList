@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:IconItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					xmlns:s="library://ns.adobe.com/flex/spark"  
+					width="100%" iconWidth="64" iconHeight="64">
+	<fx:Script>
+		<![CDATA[
+			
+			private var _backgroundSection:Number = 0xDDDDDD;
+			
+			public function set backgroundSection(value:Number):void {
+				_backgroundSection = value;
+			}
+			
+			private var _normalLabelField:String = "label";
+
+			public function get normalLabelField():String {
+				return _normalLabelField;
+			}
+			
+			public function set normalLabelField(value:String):void {
+				_normalLabelField = value;
+			}
+			
+			private var _sectionField:String = "section";
+
+			public function get sectionField():String {
+				return _sectionField;
+			}
+			
+			public function set sectionField(value:String):void {
+				if (value == _sectionField)
+					return;
+				
+				_sectionField = value;
+				invalidateProperties();
+			}
+			
+			/**
+			 * Change the style based on the data: section item or regular item
+			 */ 
+			override public function set data(value:Object):void {
+				if (value[_sectionField]) {
+					labelField = _sectionField;
+					labelDisplay.setStyle("textAlign", "center");
+					labelDisplay.setStyle("fontWeight", "bold");
+				} else {
+					labelField = _normalLabelField;
+					labelDisplay.setStyle("textAlign", "left");
+					labelDisplay.setStyle("fontWeight", "normal");
+				}
+				super.data = value;	
+			}
+			
+			override protected function drawBackground(unscaledWidth:Number, unscaledHeight:Number):void {
+				super.drawBackground(unscaledWidth, unscaledHeight);
+				//change the background if we render for a section title item
+				if (data[_sectionField]) {
+					graphics.beginFill(_backgroundSection, 1);
+					graphics.lineStyle();
+					graphics.drawRect(0, 0, unscaledWidth, unscaledHeight);
+					graphics.endFill();
+				}
+			}
+			
+		]]>
+	</fx:Script>
+</s:IconItemRenderer>
